@@ -128,9 +128,9 @@ margin: auto;
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 40%;
+  width: 30%;
   float: left;
-  margin:20px;
+  margin:15px;
 }
 
 .card:hover {
@@ -144,7 +144,37 @@ margin: auto;
 {
   width: 1000px;
   margin: auto;
+  text-align: center;
 }
+.button {
+  background-color:rgb(177, 68, 68); /* Green */
+  border: none;
+  /* width: 20px; */
+  color: white;
+  width:250px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+/* 
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+} */
+
+/* .button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+} */
 </style>
 
 
@@ -251,33 +281,32 @@ margin: auto;
 <br>
 
 <div id="divcard">
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="images/webcarousel_chairs.png" alt="Card image cap">
-  
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Add To Cart</a>
-    </div>
-  </div>
 
-  <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="images/webcarousel_chairs.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Add To Cart</a>
-      </div>
-    </div>
 
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="images/webcarousel_chairs.png" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Add To Cart</a>
+      <div class="card">
+          <img src="images/webcarousel_chairs.png" alt="Avatar" style="width:100%">
+          <div class="container">
+            <h4><b>John Doe</b></h4> 
+            <p>Architect & Engineer</p> 
+            <button class="button">Add To Cart</button>
+          </div>
         </div>
-      </div>
+        <div class="card">
+            <img src="images/webcarousel_chairs.png" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>John Doe</b></h4> 
+              <p>Architect & Engineer</p> 
+              <button class="button">Add To Cart</button>
+            </div>
+          </div>
+          <div class="card">
+              <img src="images/webcarousel_chairs.png" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>John Doe</b></h4> 
+                <p>Architect & Engineer</p> 
+                <button class="button">Add To Cart</button>
+              </div>
+            </div>
     </div>
 
       <div id="footer">
