@@ -1,0 +1,152 @@
+.social-part .fa{
+    padding-right:20px;
+}
+ul li a{
+    margin-right: 20px;
+}
+.sub-head{
+    font-family: Poppins, Arial, sans-serif;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    color: gray;
+    text-align: center;
+}
+.category
+{
+  width:400px; 
+  text-align: center;
+  float: left;  
+}
+.category img{
+  height: 300px;
+  width: 300px;
+}
+
+.shop-catagory-slider
+{
+  max-width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;  
+  overflow: auto;
+  position: relative;
+  
+}
+
+.btnend
+{
+  position: absolute;
+  top:150px;
+  right: 5px;
+}
+.btnstart{
+  position: absolute;
+  top:150px;
+  
+}
+#head-image{
+  width: 100%;
+  position: relative;
+}
+#footer{
+  background-color: #212121;
+  height: 90px;  
+  bottom: 0px;
+  left: 0px;
+  line-height: 50px;
+  color: #aaa;
+  text-align: center;
+  width: 100%;
+  clear: both;
+}
+
+
+.ml12 {
+  font-weight: 100;
+  font-size: 2.3em;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  position: absolute;
+  top:400px;
+  right:0px;
+  color: white;
+}
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+.m2{
+  position: absolute;
+  top:450px;
+  right:0px;
+}
+.m3
+{
+  position: absolute;
+  top:500px;
+  right:0px;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row{
+max-width:1200px;
+margin: auto;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 30%;
+  float: left;
+  margin:15px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+#divcard
+{
+  width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+.button {
+  background-color:rgb(177, 68, 68); /* Green */
+  border: none;
+  /* width: 20px; */
+  color: white;
+  width:250px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+/* 
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+} */
+
+/* .button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+} */
