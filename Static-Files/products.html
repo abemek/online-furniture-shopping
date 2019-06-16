@@ -1,53 +1,142 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
+<link rel="stylesheet" href="css/home-header-footer.css">
+  <title>Couch</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="js/home.js"></script>
 </head>
 <body>
-        <div class="shop-catagory-slider">
-                <div class="catgroup">          
-                  
-                  <div class="category">
-                    <img src="images/PDUNL30_SEAL_OL_17.png" onclick="plusDivs(-1)"><br>
-                    <a href=""> Mattress</a>  
-                  
-                                
-                  </div>
-        
-                  <div class="category">
-                      <img src="images/PINT141_Outline.png"><br>
-                      <a href=""> Dining Table</a>              
-                  </div>
-        
-                    <div class="category">
-                        <img src="images/webcarousel_sofa.png" onclick="plusDivs(1)"><br>
-                        <a href=""> Sofa</a>              
-                    </div>
-                   
-                  </div>
-        
-                  <div class="catgroup">
-                                
-                      <div class="category">
-                        <img src="images/PTOP428_1_TOPL_OL_15.png" onclick="plusDivs(-1)"><br>
-                        <a href=""> Bed</a>              
-                      </div>
-            
-                      <div class="category">
-                          <img src="images/webcarousel_chairs.png"><br>
-                          <a href=""> Couch</a>              
-                      </div>
-            
-                        <div class="category">
-                            <img src="images/PDUNL30_SEAL_OL_17.png" onclick="plusDivs(1)"><br>
-                            <a href=""> Mattress</a>              
-                        </div>
-                       
-            
-                      </div>            
-                      
+    <nav class="navbar navbar-expand-sm fixed-top  navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown dmenu">
+              <a class="nav-link" href="#">MATTRESS</a>
+              <div class="dropdown-menu sm-menu">
+                <a class="dropdown-item" href="#">All Mattress</a>
+                <a class="dropdown-item" href="#">Adjustable Bases and Frames</a>
+                <a class="dropdown-item" href="#">Sleep Accessories</a>
               </div>
+            </li>
+            <li class="nav-item dropdown dmenu">
+            <a class="nav-link" href="#" id="navbardrop">
+             LIVINGROOMS
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" href="#">Sofa</a>
+              <a class="dropdown-item" href="products.html">Couch</a>
+              <a class="dropdown-item" href="#">LoveSeat</a>
+            </div>
+          </li>
+
+
+          <li class="nav-item dropdown dmenu">
+            <a class="nav-link" href="#" id="navbardrop">
+              BEDROOMS
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" href="#">Beds</a>
+              <a class="dropdown-item" href="#">Dressers/Armoires</a>
+              <a class="dropdown-item" href="#">Linens</a>
+              <a class="dropdown-item" href="#">Kids Bed</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown dmenu">
+            <a class="nav-link" href="#" id="navbardrop">
+              DINING
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" href="#">Dining Sets</a>
+              <a class="dropdown-item" href="#">Tables</a>
+              <a class="dropdown-item" href="#">Chairs & Stools</a>
+              <a class="dropdown-item" href="#">Sideboards & Buffets</a>
+            </div>
+          </li>
+
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">CONTACT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">CALL</a>
+          </li>   
+          </ul>
+          <div class="social-part">              
+              <i class="fa fa-shopping-cart"><span id="minicart-quantity">(0)</span> </i>  
+                              
+          </div>
+       </div>
+      </nav>         
+      <br><br>
+  <div id="divcard">
+
+    <div class="card">
+        <img src="images/webcarousel_chairs.png" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>unique design sofa</b></h4> 
+          <p>$150</p> 
+          <button class="button">Add To Cart</button>
+        </div>
+      </div>
+      <div class="card">
+          <img src="images/coach1.jpg" alt="Avatar" style="width:100%">
+          <div class="container">
+            <h4><b>Giantex Arm Chair</b></h4> 
+            <p>$170</p> 
+            <button class="button">Add To Cart</button>
+          </div>
+        </div>
+        <div class="card">
+            <img src="images/coach2.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>Ashley Furniture</b></h4> 
+              <p>$250</p> 
+              <button class="button">Add To Cart</button>
+            </div>
+          </div>
+
+
+
+          <div class="card">
+            <img src="images/coach3.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>Christopher Furniture</b></h4> 
+              <p>$200</p> 
+              <button class="button">Add To Cart</button>
+            </div>
+          </div>
+          <div class="card">
+              <img src="images/coach4.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>Rogers Fabric Sofa </b></h4> 
+                <p>$180</p> 
+                <button class="button">Add To Cart</button>
+              </div>
+            </div>
+            <div class="card">
+                <img src="images/coach5.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Harper&Bright Designs </b></h4> 
+                  <p>$200</p> 
+                  <button class="button">Add To Cart</button>
+                </div>
+              </div>
+  </div>  
 </body>
 </html>
