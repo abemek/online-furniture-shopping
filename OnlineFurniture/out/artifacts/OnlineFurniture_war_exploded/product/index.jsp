@@ -120,7 +120,11 @@ document.getElementById(id).style.display = visibility;
             <li class="nav-item">
                 <a class="nav-link" href="#">CALL</a>
             </li>
+
         </ul>
+        <div class="social-part">
+            <a class="nav-link" href="/logout">LOGOUT</a>
+        </div>
         <div class="social-part">
             <i class="fa fa-shopping-cart"><span id="minicart-quantity" onMouseOver="setVisibility('sub1', 'inline');" >(0)</span> </i>
 
@@ -128,6 +132,7 @@ document.getElementById(id).style.display = visibility;
     </div>
 </nav>
 <br><br>
+<% String userName=(String)session.getAttribute("usersession");%>
 <div id="divcard">
     <c:forEach var="product" items="${products }">
         <div class="card">
@@ -136,7 +141,14 @@ document.getElementById(id).style.display = visibility;
             <div class="container">
                 <h4><b>${product.name}</b></h4>
                 <p>$${product.price}</p>
+
+                <% String muser=(String)session.getAttribute("usersession");%>
+                <c:set var="logged" value="<%=muser%>"/>
+
                 <button class="button"
+                        <c:if test="${logged == null}">
+                            <c:out value="disabled"/>
+                        </c:if>
                     onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>'">
                     Add To Cart
                 </button>
