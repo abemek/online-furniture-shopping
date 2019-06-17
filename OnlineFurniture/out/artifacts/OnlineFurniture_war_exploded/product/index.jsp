@@ -43,6 +43,21 @@
         {
             float: left;
         }
+
+        .theImg
+        {
+            width: 100px;
+            height: 100px;
+            /*float: left;*/
+            display: block;
+        }
+        p{
+            margin: 0px;
+        }
+        #newDiv1
+        {
+            overflow: auto;
+        }
     </style>
 
     <script>
@@ -50,6 +65,45 @@ function setVisibility(id, visibility) {
 document.getElementById(id).style.display = visibility;
 }
 </script>
+
+    <script>
+        $(document).ready(function () {
+            document.getElementById("minicart-quantity").innerHTML="${sessionScope.count}";
+            $(".button").click(
+                function () {
+
+                    $.get('cart',{action:"buy",id:this.value},function (jsonString)
+                        {
+                            $("#minicart-quantity").text(jsonString.length);
+                            $('#cart').empty();
+                            $('#cart').append(
+                                $('<div/>')
+                                    .attr("id", "newDiv1")
+                                    .addClass("newDiv purple bloated")
+
+                            );
+                            for(var i=0;i<jsonString.length;i++)
+                            {
+                                $('#newDiv1').append('<img class="theImg" src="resources/images/'+jsonString[i].product.photo +'" />');
+                                $('#newDiv1').append('<p>'+jsonString[i].product.name+'</P>');
+                                $('#newDiv1').append('<p>'+"QTY: "+jsonString[i].quantity+'</P>');
+                                $('#newDiv1').append('<p>'+"PRICE: "+jsonString[i].product.price+'</P>');
+                                $('#newDiv1').append('<br>');
+                                $('#newDiv1').append('<hr>');
+                            }
+                        }
+                    )
+                }
+            )
+        })
+
+
+
+    </script>
+
+
+
+    <input type="text" name="pONumb" value="${sessionScope.count}" />
 </head>
 <body>
 <nav class="navbar navbar-expand-sm fixed-top  navbar-light bg-light">
@@ -82,8 +136,12 @@ document.getElementById(id).style.display = visibility;
                     <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
                     <c:param name="type" value="Couch"/>
                     </c:url>">
-                        Couch</a>
-                    <a class="dropdown-item" href="#">LoveSeat</a>
+                    Couch</a>
+
+                    <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="Loveseat"/>
+                    </c:url>">
+                        LoveSeat</a>
                 </div>
             </li>
 
@@ -93,7 +151,12 @@ document.getElementById(id).style.display = visibility;
                     BEDROOMS
                 </a>
                 <div class="dropdown-menu sm-menu">
-                    <a class="dropdown-item" href="#">Beds</a>
+<%--                    <a class="dropdown-item" href="#">Beds</a>--%>
+
+                    <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="Bed"/>
+                    </c:url>">
+                        Beds</a>
                     <a class="dropdown-item" href="#">Dressers/Armoires</a>
                     <a class="dropdown-item" href="#">Linens</a>
                     <a class="dropdown-item" href="#">Kids Bed</a>
@@ -122,12 +185,15 @@ document.getElementById(id).style.display = visibility;
             </li>
         </ul>
         <div class="social-part">
-            <i class="fa fa-shopping-cart"><span id="minicart-quantity" onMouseOver="setVisibility('sub1', 'inline');" >(0)</span> </i>
-
+            <i class="fa fa-shopping-cart" onMouseOver="setVisibility('sub1', 'inline');"> <span id="minicart-quantity" onMouseOver="setVisibility('sub1', 'inline');" ></span></i>
         </div>
     </div>
 </nav>
+
+
+
 <br><br>
+
 <div id="divcard">
     <c:forEach var="product" items="${products }">
         <div class="card">
@@ -136,8 +202,8 @@ document.getElementById(id).style.display = visibility;
             <div class="container">
                 <h4><b>${product.name}</b></h4>
                 <p>$${product.price}</p>
-                <button class="button"
-                    onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>'">
+                <button class="button" id="addCart" value="${product.id }">
+<%--                   onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>',test()">--%>
                     Add To Cart
                 </button>
             </div>
@@ -146,32 +212,34 @@ document.getElementById(id).style.display = visibility;
 
 
 
+
+
     <div id="sub1" class=my_div onMouseOut="setVisibility('sub1','none');" onMouseOver="setVisibility('sub1', 'inline');">
+<div id="cart"></div>
+<%--            <c:set var="total" value="0"></c:set>--%>
+<%--            <c:forEach var="item" items="${sessionScope.cart }">--%>
+<%--                <c:set var="total" value="${total + item.product.price * item.quantity }"></c:set>--%>
+<%--                <div id="viewcart">--%>
+<%--                <img src="${pageContext.request.contextPath }resources/images/${item.product.photo }" width="120">--%>
+<%--                    <br>--%>
+<%--                ${item.product.name }<br>--%>
+<%--                QTY: ${item.quantity }<br>--%>
+<%--                PRICE: ${item.product.price }--%>
 
-            <c:set var="total" value="0"></c:set>
-            <c:forEach var="item" items="${sessionScope.cart }">
-                <c:set var="total" value="${total + item.product.price * item.quantity }"></c:set>
+<%--                    <br>--%>
+<%--                    <br>--%>
+<%--                <hr>--%>
+<%--                </div>--%>
+<%--            </c:forEach>--%>
 
-
-                <div id="viewcart">
-                <img src="${pageContext.request.contextPath }resources/images/${item.product.photo }" width="120">
-                    <br>
-                ${item.product.name }<br>
-                QTY: ${item.quantity }<br>
-                PRICE: ${item.product.price }
-<%--                <a href="${pageContext.request.contextPath }/cart?action=remove&id=${item.product.id }"--%>
-<%--                   onclick="return confirm('Are you sure?')">Remove</a>--%>
-                    <br>
-                    <br>
-                <hr>
-                </div>
-            </c:forEach>
     <button class="button"
-            onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>'">
+            onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="view"/><c:param name="id" value="${product.id }"/></c:url>'">
         View Cart
     </button>
     </div>
 
 </div>
+<input type="text" id="pONumb" />
+<div id="counter"></div>
 </body>
 </html>

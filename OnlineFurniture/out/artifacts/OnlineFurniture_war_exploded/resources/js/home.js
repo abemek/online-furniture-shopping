@@ -1,8 +1,7 @@
 function pageload(){
-
-
     
     $(document).ready(function () {
+        // document.getElementById("minicart-quantity").innerHTML="${sessionScope.count}";
         $('.navbar-light .dmenu').hover(function () {
                 $(this).find('.sm-menu').first().stop(true, true).slideDown(150);
             }, function () {
@@ -13,6 +12,8 @@ function pageload(){
     var slideIndex = 1;       
          
     showDivs(slideIndex);
+
+
     
     function plusDivs(n) {
       showDivs(slideIndex += n);
