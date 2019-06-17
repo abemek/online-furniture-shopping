@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
   <link rel="stylesheet" href="resources/css/home-header-footer.css">
+  <link rel="stylesheet" href="resources/css/logincss.css">
 
   <title>Online Furniture Shopping</title>
 
@@ -23,6 +24,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <script src="resources/js/home.js"></script>
+  <script src="resources/js/authentication.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
@@ -100,43 +102,58 @@
       </li>
     </ul>
     <div class="social-part">
-      <a class="nav-link" href="login.jsp">LOGIN</a>
+      <a class="nav-link" href="/logout">LOGOUT</a>
     </div>
   </div>
 </nav>
 
-<img id="head-image" src="resources/images/0602_0615_Mattress.jpg">
-
-<!-- <h1 class="ml12">A new production</h1> -->
-<h1 class="ml12">Diverse Brands</h1>
-<h1 class="ml12 m2"> Styles </h1>
-<h1 class="ml12 m3">in One Place</h1>
+<br/>
 
 
 
+<div id="mform"  >
+  <div class="imgcontainer">
 
-<h1 class="sub-head">Shop by Catagory</h1>
+    <img src="resources/images/avatar.png" class="avatar" alt="Login"/>
+  </div>
+
+
+  <div class="container" >
+    <label ><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id="username"  required>
+
+    <label ><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+
+    <button type="submit" id="login">Login</button>
+    <button type="submit" id="mregister" >Register</button>
+    <div id="snackbar">Incorrect Credentials Provided..</div>
+
+  </div>
+
+</div>
+<h1 class="sub-head">Shop by Category</h1>
 
 <div class="shop-catagory-slider">
   <div class="catgroup">
     <button class="btnstart" onclick="plusDivs(-1)">&#10094;</button>
 
     <div class="cent">
-    <div class="category">
-      <img src="resources/images/PDUNL30_SEAL_OL_17.png" onclick="plusDivs(-1)"><br>
-      <a href=""> Mattress</a>
-    </div>
+      <div class="category">
+        <img src="resources/images/PDUNL30_SEAL_OL_17.png" onclick="plusDivs(-1)"><br>
+        <a href=""> Mattress</a>
+      </div>
 
 
-    <div class="category">
-      <img src="resources/images/PINT141_Outline.png"><br>
-      <a href=""> Dining Table</a>
-    </div>
+      <div class="category">
+        <img src="resources/images/PINT141_Outline.png"><br>
+        <a href=""> Dining Table</a>
+      </div>
 
-    <div class="category">
-      <img src="resources/images/webcarousel_sofa.png" onclick="plusDivs(1)"><br>
-      <a href=""> Sofa</a>
-    </div>
+      <div class="category">
+        <img src="resources/images/webcarousel_sofa.png" onclick="plusDivs(1)"><br>
+        <a href=""> Sofa</a>
+      </div>
     </div>
     <button class="btnend" onclick="plusDivs(1)">&#10095;</button>
   </div>
@@ -193,6 +210,9 @@
     </div>
   </div>
 </div>
+
+
+
 
 <div id="footer">
   Here Comes The Footer 2014 Copyright

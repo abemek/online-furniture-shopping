@@ -100,7 +100,7 @@
       </li>
     </ul>
     <div class="social-part">
-      <a class="nav-link" href="">LOGIN</a>
+      <a class="nav-link" href="login.jsp">LOGIN</a>
     </div>
   </div>
 </nav>
