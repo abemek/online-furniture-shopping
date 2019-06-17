@@ -58,6 +58,13 @@
         {
             overflow: auto;
         }
+        .logout
+        {
+            margin: 0px;
+        }
+        a{
+            color:#808080;
+        }
     </style>
 
     <script>
@@ -187,7 +194,10 @@ document.getElementById(id).style.display = visibility;
         </ul>
         <div class="social-part">
             <i class="fa fa-shopping-cart" onMouseOver="setVisibility('sub1', 'inline');"> <span id="minicart-quantity" onMouseOver="setVisibility('sub1', 'inline');" ></span></i>
-            <a class="nav-link" href="/logout">LOGOUT</a>
+
+        </div>
+        <div>
+            <a id="logout" class="nav-link" href="/logout">LOGOUT</a>
         </div>
     </div>
 </nav>
@@ -208,11 +218,11 @@ document.getElementById(id).style.display = visibility;
                 <% String muser=(String)session.getAttribute("usersession");%>
                 <c:set var="logged" value="<%=muser%>"/>
 
-                <button class="button"
-                        <c:if test="${logged == null}">
-                            <c:out value="disabled"/>
-                        </c:if>
-                    onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>'">
+<%--                <button class="button"--%>
+<%--                        <c:if test="${logged == null}">--%>
+<%--                            <c:out value="disabled"/>--%>
+<%--                        </c:if>--%>
+<%--                    onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>'">--%>
                 <button class="button" id="addCart" value="${product.id }">
 <%--                   onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>',test()">--%>
                     Add To Cart
