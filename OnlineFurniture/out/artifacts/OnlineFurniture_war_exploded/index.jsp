@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Pomi-dave
-  Date: 6/15/2019
-  Time: 6:32 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
@@ -38,14 +31,23 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/home">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown dmenu">
         <a class="nav-link" href="#">MATTRESS</a>
         <div class="dropdown-menu sm-menu">
-          <a class="dropdown-item" href="#">All Mattress</a>
-          <a class="dropdown-item" href="#">Adjustable Bases and Frames</a>
-          <a class="dropdown-item" href="#">Sleep Accessories</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="mattress"/>
+                    </c:url>">
+            All Mattress</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="amattress"/>
+                    </c:url>">
+            Adjustable Bases and Frames</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="Sofa"/>
+                    </c:url>">
+            Sleep Accessories</a>
         </div>
       </li>
       <li class="nav-item dropdown dmenu">
@@ -61,7 +63,10 @@
                     <c:param name="type" value="Couch"/>
                     </c:url>">
               Couch</a>
-          <a class="dropdown-item" href="#">LoveSeat</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="Loveseat"/>
+                    </c:url>">
+            LoveSeat</a>
         </div>
       </li>
 
@@ -71,10 +76,26 @@
           BEDROOMS
         </a>
         <div class="dropdown-menu sm-menu">
-          <a class="dropdown-item" href="#">Beds</a>
-          <a class="dropdown-item" href="#">Dressers/Armoires</a>
-          <a class="dropdown-item" href="#">Linens</a>
-          <a class="dropdown-item" href="#">Kids Bed</a>
+
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="Bed"/>
+                    </c:url>">
+            Beds</a>
+
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="dresser"/>
+                    </c:url>">
+            Dressers/Armoires</a>
+
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="linen"/>
+                    </c:url>">
+            Linens</a>
+
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="kidsbed"/>
+                    </c:url>">
+            Kids Bed</a>
         </div>
       </li>
 
@@ -83,14 +104,24 @@
           DINING
         </a>
         <div class="dropdown-menu sm-menu">
-          <a class="dropdown-item" href="#">Dining Sets</a>
-          <a class="dropdown-item" href="#">Tables</a>
-          <a class="dropdown-item" href="#">Chairs & Stools</a>
-          <a class="dropdown-item" href="#">Sideboards & Buffets</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="dining"/>
+                    </c:url>">
+            Dining Sets</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="table"/>
+                    </c:url>">
+            Tables</a>
+<%--          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">--%>
+<%--                    <c:param name="type" value="chairs"/>--%>
+<%--                    </c:url>">--%>
+<%--            Chairs & Stools</a>         --%>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="sideboard"/>
+                    </c:url>">
+            Sideboards & Buffets</a>
         </div>
       </li>
-
-
 
       <li class="nav-item">
         <a class="nav-link" href="#">CONTACT US</a>
