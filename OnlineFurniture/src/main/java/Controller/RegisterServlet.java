@@ -68,21 +68,12 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("XXXXX");
         createFile(req);
-
         ServletContext context = req.getServletContext();
         String path = context.getRealPath("/");
-
-
         UserModel user = mapper.fromJson(req.getParameter("mregister"), UserModel.class);
-
         addUser(req.getParameter("mregister"),req);
-
-
-
         PrintWriter out = null;
-
         userDAO.addUser(user);
         out = resp.getWriter();
         JsonObject cResponse = new JsonObject();

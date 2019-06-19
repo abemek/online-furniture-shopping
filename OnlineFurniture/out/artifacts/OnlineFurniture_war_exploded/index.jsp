@@ -15,11 +15,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="resources/js/scripti.js"></script>
   <script src="resources/js/home.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-
 </head>
 <body>
 
@@ -59,10 +58,10 @@
                     <c:param name="type" value="Sofa"/>
                     </c:url>">
             Sofa</a>
-            <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
                     <c:param name="type" value="Couch"/>
                     </c:url>">
-              Couch</a>
+            Couch</a>
           <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
                     <c:param name="type" value="Loveseat"/>
                     </c:url>">
@@ -112,10 +111,10 @@
                     <c:param name="type" value="table"/>
                     </c:url>">
             Tables</a>
-<%--          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">--%>
-<%--                    <c:param name="type" value="chairs"/>--%>
-<%--                    </c:url>">--%>
-<%--            Chairs & Stools</a>         --%>
+          <%--          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">--%>
+          <%--                    <c:param name="type" value="chairs"/>--%>
+          <%--                    </c:url>">--%>
+          <%--            Chairs & Stools</a>         --%>
           <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
                     <c:param name="type" value="sideboard"/>
                     </c:url>">
@@ -130,8 +129,12 @@
         <a class="nav-link" href="#">CALL</a>
       </li>
     </ul>
+       <div class="social-part">
+         <a class="nav-link" href="/login" style="color:blue">LOGIN</a>
+        </div>
     <div class="social-part">
-      <a class="nav-link" href="login.jsp">LOGIN</a>
+      <i class="fa fa-shopping-cart"><span id="minicart-quantity" onMouseOver="setVisibility('sub1', 'inline');" ></span> </i>
+
     </div>
   </div>
 </nav>
@@ -143,9 +146,6 @@
 <h1 class="ml12 m2"> Styles </h1>
 <h1 class="ml12 m3">in One Place</h1>
 
-
-
-
 <h1 class="sub-head">Shop by Catagory</h1>
 
 <div class="shop-catagory-slider">
@@ -153,42 +153,43 @@
     <button class="btnstart" onclick="plusDivs(-1)">&#10094;</button>
 
     <div class="cent">
-    <div class="category">
-      <img src="resources/images/PDUNL30_SEAL_OL_17.png" onclick="plusDivs(-1)"><br>
-      <a href=""> Mattress</a>
-    </div>
+      <div class="category">
+        <img src="resources/images/PDUNL30_SEAL_OL_17.png" onclick="plusDivs(-1)"><br>
+        <a href="/products?type=mattress"> Mattress</a>
+      </div>
 
 
-    <div class="category">
-      <img src="resources/images/PINT141_Outline.png"><br>
-      <a href=""> Dining Table</a>
-    </div>
+      <div class="category">
+        <img src="resources/images/PINT141_Outline.png"><br>
+        <a href="/products?type=table"> Dining Table</a>
+      </div>
 
-    <div class="category">
-      <img src="resources/images/webcarousel_sofa.png" onclick="plusDivs(1)"><br>
-      <a href=""> Sofa</a>
-    </div>
+      <div class="category">
+        <img src="resources/images/webcarousel_sofa.png" onclick="plusDivs(1)"><br>
+        <a href="/products?type=Sofa"> Sofa</a>
+      </div>
     </div>
     <button class="btnend" onclick="plusDivs(1)">&#10095;</button>
   </div>
 
   <div class="catgroup">
     <button class="btnstart"  onclick="plusDivs(-1)">&#10094;</button>
-
+<div class="cent">
     <div class="category">
       <img src="resources/images/PTOP428_1_TOPL_OL_15.png" onclick="plusDivs(-1)"><br>
-      <a href=""> Bed</a>
+      <a href="/products?type=Bed"> Bed</a>
     </div>
 
     <div class="category">
       <img src="resources/images/webcarousel_chairs.png"><br>
-      <a href=""> Couch</a>
+      <a href="/products>type=Couch"> Couch</a>
     </div>
 
     <div class="category">
-      <img src="resources/images/PDUNL30_SEAL_OL_17.png" onclick="plusDivs(1)"><br>
-      <a href=""> Mattress</a>
+      <img src="resources/images/linen.jpg" onclick="plusDivs(1)"><br>
+      <a href="/products?type=linen"> LINENS</a>
     </div>
+</div>
 
     <button class="btnend" onclick="plusDivs(1)">&#10095;</button>
 
@@ -208,7 +209,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="resources/images/webcarousel_chairs.png" alt="Avatar" >
+    <img src="resources/images/sofa1.jpg" alt="Avatar" >
     <div class="container">
       <h4><b>John Doe</b></h4>
       <p>Architect & Engineer</p>
@@ -216,7 +217,7 @@
     </div>
   </div>
   <div class="card">
-    <img src="resources/images/webcarousel_chairs.png" alt="Avatar" >
+    <img src="resources/images/bed3.jpg" alt="Avatar" >
     <div class="container">
       <h4><b>John Doe</b></h4>
       <p>Architect & Engineer</p>

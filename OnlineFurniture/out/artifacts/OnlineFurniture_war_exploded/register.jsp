@@ -40,14 +40,23 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/home">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown dmenu">
         <a class="nav-link" href="#">MATTRESS</a>
         <div class="dropdown-menu sm-menu">
-          <a class="dropdown-item" href="#">All Mattress</a>
-          <a class="dropdown-item" href="#">Adjustable Bases and Frames</a>
-          <a class="dropdown-item" href="#">Sleep Accessories</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="mattress"/>
+                    </c:url>">
+            All Mattress</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="amattress"/>
+                    </c:url>">
+            Adjustable Bases and Frames</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="Sofa"/>
+                    </c:url>">
+            Sleep Accessories</a>
         </div>
       </li>
       <li class="nav-item dropdown dmenu">
@@ -59,11 +68,14 @@
                     <c:param name="type" value="Sofa"/>
                     </c:url>">
             Sofa</a>
-            <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
                     <c:param name="type" value="Couch"/>
                     </c:url>">
-              Couch</a>
-          <a class="dropdown-item" href="#">LoveSeat</a>
+            Couch</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="Loveseat"/>
+                    </c:url>">
+            LoveSeat</a>
         </div>
       </li>
 
@@ -73,10 +85,26 @@
           BEDROOMS
         </a>
         <div class="dropdown-menu sm-menu">
-          <a class="dropdown-item" href="#">Beds</a>
-          <a class="dropdown-item" href="#">Dressers/Armoires</a>
-          <a class="dropdown-item" href="#">Linens</a>
-          <a class="dropdown-item" href="#">Kids Bed</a>
+
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="Bed"/>
+                    </c:url>">
+            Beds</a>
+
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="dresser"/>
+                    </c:url>">
+            Dressers/Armoires</a>
+
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="linen"/>
+                    </c:url>">
+            Linens</a>
+
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="kidsbed"/>
+                    </c:url>">
+            Kids Bed</a>
         </div>
       </li>
 
@@ -85,14 +113,24 @@
           DINING
         </a>
         <div class="dropdown-menu sm-menu">
-          <a class="dropdown-item" href="#">Dining Sets</a>
-          <a class="dropdown-item" href="#">Tables</a>
-          <a class="dropdown-item" href="#">Chairs & Stools</a>
-          <a class="dropdown-item" href="#">Sideboards & Buffets</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="dining"/>
+                    </c:url>">
+            Dining Sets</a>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="table"/>
+                    </c:url>">
+            Tables</a>
+          <%--          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">--%>
+          <%--                    <c:param name="type" value="chairs"/>--%>
+          <%--                    </c:url>">--%>
+          <%--            Chairs & Stools</a>         --%>
+          <a class="dropdown-item" href="<c:url value="${pageContext.request.contextPath }/products">
+                    <c:param name="type" value="sideboard"/>
+                    </c:url>">
+            Sideboards & Buffets</a>
         </div>
       </li>
-
-
 
       <li class="nav-item">
         <a class="nav-link" href="#">CONTACT US</a>
@@ -102,7 +140,11 @@
       </li>
     </ul>
     <div class="social-part">
-      <a class="nav-link" href="">LOGOUT</a>
+      <a class="nav-link" href="/login" style="color:blue">LOGIN</a>
+    </div>
+    <div class="social-part">
+      <i class="fa fa-shopping-cart"><span id="minicart-quantity" onMouseOver="setVisibility('sub1', 'inline');" ></span> </i>
+
     </div>
   </div>
 </nav>
@@ -134,96 +176,7 @@
   </div>
 
 </div>
-<h1 class="sub-head">Shop by Category</h1>
 
-<div class="shop-catagory-slider">
-  <div class="catgroup">
-    <button class="btnstart" onclick="plusDivs(-1)">&#10094;</button>
-
-    <div class="cent">
-      <div class="category">
-        <img src="resources/images/PDUNL30_SEAL_OL_17.png" onclick="plusDivs(-1)"><br>
-        <a href=""> Mattress</a>
-      </div>
-
-
-      <div class="category">
-        <img src="resources/images/PINT141_Outline.png"><br>
-        <a href=""> Dining Table</a>
-      </div>
-
-      <div class="category">
-        <img src="resources/images/webcarousel_sofa.png" onclick="plusDivs(1)"><br>
-        <a href=""> Sofa</a>
-      </div>
-    </div>
-    <button class="btnend" onclick="plusDivs(1)">&#10095;</button>
-  </div>
-
-  <div class="catgroup">
-    <button class="btnstart"  onclick="plusDivs(-1)">&#10094;</button>
-
-    <div class="category">
-      <img src="resources/images/PTOP428_1_TOPL_OL_15.png" onclick="plusDivs(-1)"><br>
-      <a href=""> Bed</a>
-    </div>
-
-    <div class="category">
-      <img src="resources/images/webcarousel_chairs.png"><br>
-      <a href=""> Couch</a>
-    </div>
-
-    <div class="category">
-      <img src="resources/images/PDUNL30_SEAL_OL_17.png" onclick="plusDivs(1)"><br>
-      <a href=""> Mattress</a>
-    </div>
-
-    <button class="btnend" onclick="plusDivs(1)">&#10095;</button>
-
-  </div>
-
-</div>
-<br>
-
-<div id="divcard">
-
-  <div class="card">
-    <img src="resources/images/webcarousel_chairs.png" alt="Avatar" >
-    <div class="container">
-      <h4><b>John Doe</b></h4>
-      <p>Architect & Engineer</p>
-      <button class="button">Add To Cart</button>
-    </div>
-  </div>
-  <div class="card">
-    <img src="resources/images/webcarousel_chairs.png" alt="Avatar" >
-    <div class="container">
-      <h4><b>John Doe</b></h4>
-      <p>Architect & Engineer</p>
-      <button class="button">Add To Cart</button>
-    </div>
-  </div>
-  <div class="card">
-    <img src="resources/images/webcarousel_chairs.png" alt="Avatar" >
-    <div class="container">
-      <h4><b>John Doe</b></h4>
-      <p>Architect & Engineer</p>
-      <button class="button">Add To Cart</button>
-    </div>
-  </div>
-</div>
-
-
-
-
-<div id="footer">
-  Here Comes The Footer 2014 Copyright
-  <div class="social-part">
-    <i class="fa fa-facebook" aria-hidden="true"></i>
-    <i class="fa fa-twitter" aria-hidden="true"></i>
-    <i class="fa fa-instagram" aria-hidden="true"></i>
-  </div>
-</div>
 
 </body>
 </html>

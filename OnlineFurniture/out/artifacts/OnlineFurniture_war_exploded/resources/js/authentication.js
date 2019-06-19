@@ -18,7 +18,7 @@ $(function() {
 			dataType: 'json',
 			success: function(data) {
 				if(data.status=='ok'){
-					window.location = '/products';
+					window.location = '/products?type=Couch';
 				}else{
 					myFunction();
 					window.location = '/login';

@@ -1,0 +1,46 @@
+.my_div {
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    background-color: whitesmoke;
+    width: 350px;
+    padding: 10px;
+    color: black;
+    border: gainsboro 2px  solid;
+    display: none;
+    overflow: auto;
+}
+#minicart-quantity
+{
+    position: relative;
+}
+
+#sub1 img
+{
+    float: left;
+}
+
+.theImg
+{
+    width: 100px;
+    height: 100px;
+    /*float: left;*/
+    display: block;
+}
+p{
+    margin: 0px;
+}
+#newDiv1
+{
+    overflow: auto;
+}
+.logout
+{
+    margin: 0px;
+}
+a{
+    color:#808080;
+}
+#mlogin{
+    color:blue;
+}

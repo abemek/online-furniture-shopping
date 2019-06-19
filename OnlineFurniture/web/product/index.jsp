@@ -10,110 +10,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/home-header-footer.css">
+    <link rel="stylesheet" href="resources/css/div.css">
 
     <title>Online Furniture Shopping</title>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="resources/js/home.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-
+    <script src="resources/js/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-    <style>
-        .my_div {
-            position: absolute;
-            right: 10px;
-            top: 60px;
-            background-color: whitesmoke;
-            width: 350px;
-            padding: 10px;
-            color: black;
-            border: gainsboro 2px  solid;
-            display: none;
-            overflow: auto;
-        }
-        #minicart-quantity
-        {
-            position: relative;
-        }
-
-        #sub1 img
-        {
-            float: left;
-        }
-
-        .theImg
-        {
-            width: 100px;
-            height: 100px;
-            /*float: left;*/
-            display: block;
-        }
-        p{
-            margin: 0px;
-        }
-        #newDiv1
-        {
-            overflow: auto;
-        }
-        .logout
-        {
-            margin: 0px;
-        }
-        a{
-            color:#808080;
-        }
-    </style>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script>
-function setVisibility(id, visibility) {
-document.getElementById(id).style.display = visibility;
-}
-</script>
-
-    <script>
-        $(document).ready(function () {
-            document.getElementById("minicart-quantity").innerHTML="${sessionScope.count}";
-            $(".button").click(
-                function () {
-
-                    $.get('cart',{action:"buy",id:this.value},function (jsonString)
-                        {
-                            $("#minicart-quantity").text(jsonString.length);
-                            $('#cart').empty();
-                            $('#cart').append(
-                                $('<div/>')
-                                    .attr("id", "newDiv1")
-                                    .addClass("newDiv purple bloated")
-
-                            );
-                            for(var i=0;i<jsonString.length;i++)
-                            {
-                                $('#newDiv1').append('<img class="theImg" src="resources/images/'+jsonString[i].product.photo +'" />');
-                                $('#newDiv1').append('<p>'+jsonString[i].product.name+'</P>');
-                                $('#newDiv1').append('<p>'+"QTY: "+jsonString[i].quantity+'</P>');
-                                $('#newDiv1').append('<p>'+"PRICE: "+jsonString[i].product.price+'</P>');
-                                $('#newDiv1').append('<br>');
-                                $('#newDiv1').append('<hr>');
-                            }
-                        }
-                    )
-                }
-            )
-        })
-
-
-
+        function setVisibility(id, visibility) {
+            document.getElementById(id).style.display = visibility;
+        }
     </script>
-
-
-
-    <input type="text" name="pONumb" value="${sessionScope.count}" />
 </head>
 <body>
-
 <nav class="navbar navbar-expand-sm fixed-top  navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -221,14 +137,22 @@ document.getElementById(id).style.display = visibility;
                 <a class="nav-link" href="#">CALL</a>
             </li>
         </ul>
+        <% String muser=(String)session.getAttribute("usersession");%>
+        <c:set var="logged" value="<%=muser%>"/>
+        <input type="hidden" value="<%=muser%>"  id="status"/>
         <div class="social-part">
-            <a class="nav-link" href="login.jsp">LOGIN</a>
+            <c:choose>
+                <c:when test="${logged==null}"> <a class="nav-link" id="mlogin" href="/login">LOGIN</a></c:when>
+                <c:when test="${logged!=null}"> <a class="nav-link"  href="/logout">LOGOUT</a></c:when>
+            </c:choose>
+        </div>
+        <div class="social-part">
+            <i class="fa fa-shopping-cart"><span id="minicart-quantity" onMouseOver="setVisibility('sub1', 'inline');" ></span> </i>
+
         </div>
     </div>
 </nav>
-
 <br><br>
-<% String userName=(String)session.getAttribute("usersession");%>
 <div id="divcard">
     <c:forEach var="product" items="${products }">
         <div class="card">
@@ -238,52 +162,50 @@ document.getElementById(id).style.display = visibility;
                 <h4><b>${product.name}</b></h4>
                 <p>$${product.price}</p>
 
-                <% String muser=(String)session.getAttribute("usersession");%>
-                <c:set var="logged" value="<%=muser%>"/>
 
-<%--                <button class="button"--%>
-<%--                        <c:if test="${logged == null}">--%>
-<%--                            <c:out value="disabled"/>--%>
-<%--                        </c:if>--%>
-<%--                    onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>'">--%>
+                    <%--                <button class="button"--%>
+                    <%--                        <c:if test="${logged == null}">--%>
+                    <%--                            <c:out value="disabled"/>--%>
+                    <%--                        </c:if>--%>
+                    <%--                    onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>'">--%>
                 <button class="button" id="addCart" value="${product.id }">
-<%--                   onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>',test()">--%>
+                        <%--                   onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="buy"/><c:param name="id" value="${product.id }"/></c:url>',test()">--%>
                     Add To Cart
                 </button>
             </div>
         </div>
-        </c:forEach>
+    </c:forEach>
 
 
 
 
 
     <div id="sub1" class=my_div onMouseOut="setVisibility('sub1','none');" onMouseOver="setVisibility('sub1', 'inline');">
-<div id="cart"></div>
-<%--            <c:set var="total" value="0"></c:set>--%>
-<%--            <c:forEach var="item" items="${sessionScope.cart }">--%>
-<%--                <c:set var="total" value="${total + item.product.price * item.quantity }"></c:set>--%>
-<%--                <div id="viewcart">--%>
-<%--                <img src="${pageContext.request.contextPath }resources/images/${item.product.photo }" width="120">--%>
-<%--                    <br>--%>
-<%--                ${item.product.name }<br>--%>
-<%--                QTY: ${item.quantity }<br>--%>
-<%--                PRICE: ${item.product.price }--%>
+        <div id="cart"></div>
+        <%--            <c:set var="total" value="0"></c:set>--%>
+        <%--            <c:forEach var="item" items="${sessionScope.cart }">--%>
+        <%--                <c:set var="total" value="${total + item.product.price * item.quantity }"></c:set>--%>
+        <%--                <div id="viewcart">--%>
+        <%--                <img src="${pageContext.request.contextPath }resources/images/${item.product.photo }" width="120">--%>
+        <%--                    <br>--%>
+        <%--                ${item.product.name }<br>--%>
+        <%--                QTY: ${item.quantity }<br>--%>
+        <%--                PRICE: ${item.product.price }--%>
 
-<%--                    <br>--%>
-<%--                    <br>--%>
-<%--                <hr>--%>
-<%--                </div>--%>
-<%--            </c:forEach>--%>
+        <%--                    <br>--%>
+        <%--                    <br>--%>
+        <%--                <hr>--%>
+        <%--                </div>--%>
+        <%--            </c:forEach>--%>
 
-    <button class="button"
-            onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="view"/><c:param name="id" value="${product.id }"/></c:url>'">
-        View Cart
-    </button>
+        <button class="button"
+                onclick="window.location.href='<c:url value="${pageContext.request.contextPath }/cart"><c:param name="action" value="view"/><c:param name="id" value="${product.id }"/></c:url>'">
+            View Cart
+        </button>
     </div>
 
 </div>
-<input type="text" id="pONumb" />
+<%--<input type="text" id="pONumb" />--%>
 <div id="counter"></div>
 </body>
 </html>

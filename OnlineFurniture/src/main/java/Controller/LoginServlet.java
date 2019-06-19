@@ -70,23 +70,12 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("BBBBBBB");
         userDAO = new UserDAO();
-
-
         for (UserModel us : userDAO.getAllUsers()) {
             System.out.println("User==> " + us);
         }
-
         UserModel user = mapper.fromJson(req.getParameter("mlogin"), UserModel.class);
-
-
         HttpSession oldSession = req.getSession(false);
-
-        if (oldSession != null) {
-            oldSession.invalidate();
-        }
-
         HttpSession newSession = req.getSession(true);
         String checkbox = req.getParameter("remember");
 

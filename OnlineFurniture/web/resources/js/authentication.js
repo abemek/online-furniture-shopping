@@ -18,7 +18,7 @@ $(function() {
 			dataType: 'json',
 			success: function(data) {
 				if(data.status=='ok'){
-					window.location = '/products';
+					window.location = '/products?type=Couch';
 				}else{
 					myFunction();
 					window.location = '/login';
@@ -89,22 +89,3 @@ $(function() {
 	}
 
 })
-
-
-
-/*window.onload=chargement;
-
-function chargement() {
-	//alert("EZO KOTA2");
-	var btnlogin=document.getElementById("login");
-	btnlogin.onclick=login;
-
-}
-function login() {
-	//alert("@@@@@@@@@");
-	var username = document.getElementById("username").value;
-	var password = document.getElementById("password").value;
-
-	alert("EKOTI "+username+"--->"+password);
-}*/
-

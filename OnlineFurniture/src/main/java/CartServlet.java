@@ -28,6 +28,7 @@ public class CartServlet extends HttpServlet {
     public CartServlet() {
         super();
     }
+    Gson gson = new Gson();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,7 +43,10 @@ public class CartServlet extends HttpServlet {
                 doGet_Remove(request, response);
             }
             else if (action.equalsIgnoreCase("view")) {
-                doGet_Buy(request, response);
+                request.getRequestDispatcher("cart/mycart.jsp").forward(request, response);
+            }
+            else if (action.equalsIgnoreCase("changeQty")) {
+                doGet_ChangeQty(request, response);
             }
         }
     }
@@ -56,16 +60,47 @@ public class CartServlet extends HttpServlet {
     protected void doGet_Remove(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
         List<Item> cart = (List<Item>) session.getAttribute("cart");
         int index = isExisting(request.getParameter("id"), cart);
         cart.remove(index);
         session.setAttribute("cart", cart);
-        response.sendRedirect("cart");
+        out.print(gson.toJson(cart));
+        out.flush();
+        out.close();
     }
 
     protected void doGet_Buy(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.sendRedirect("cart");
+    }
+
+    protected void doGet_ChangeQty(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
+        int qtyint = Integer.parseInt(request.getParameter("qty"));
+        List<Item> cart = (List<Item>) session.getAttribute("cart");
+        int index = isExisting(request.getParameter("id"), cart);
+
+        for(Item i : cart){
+            System.out.println(i.getProduct().getId() + " " + i.getQuantity());
+        }
+
+        for(Item i : cart){
+            if(i.getProduct().getId().equals(request.getParameter("id"))){
+                i.setQuantity(qtyint);
+            }
+        }
+
+        for(Item i : cart){
+            System.out.println(i.getProduct().getId() + " " + i.getQuantity());
+        }
+
+        session.setAttribute("cart", cart);
+        out.print(gson.toJson(cart));
+        out.flush();
+        out.close();
     }
 
     protected void doGet_BuyCart(HttpServletRequest request, HttpServletResponse response)
@@ -83,7 +118,6 @@ public class CartServlet extends HttpServlet {
                     cart.add(new Item(id, 1));
                 }
             }
-            System.out.print("cart empty");
             session.setAttribute("cart", cart);
         }
         else
@@ -91,8 +125,6 @@ public class CartServlet extends HttpServlet {
             List<Item> cart = (List<Item>) session.getAttribute("cart");
             int index = isExisting(request.getParameter("id"), cart);
             if (index == -1) {
-                System.out.print(index+"not selected before");
-
                 for(Product id:productModel.getProductDBS())
                 {
                     if(id.getId().equals(request.getParameter("id")))
@@ -103,7 +135,6 @@ public class CartServlet extends HttpServlet {
                 }
             }
             else {
-                System.out.print(index+"selected before");
                 int quantity = cart.get(index).getQuantity() + 1;
                 cart.get(index).setQuantity(quantity);
             }
